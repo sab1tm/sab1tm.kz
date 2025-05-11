@@ -1,231 +1,177 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terminal Login</title>
+    <title>Разработка веб-приложений | Автоматизация бизнес процессов в Астане</title>
     <style>
-        body {
-            background-color: #1e1e1e;
-            color: #33ff00;
-            font-family: 'Courier New', monospace;
+        :root {
+            --primary-color: #2E7D32;
+            --secondary-color: #4CAF50;
+            --light-color: #E8F5E9;
+            --text-color: #333;
+        }
+
+        * {
             margin: 0;
-            padding: 20px;
-            height: 100vh;
+            padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
         }
 
-        #terminal {
-            max-width: 800px;
-            margin: 50px auto;
+        body {
+            background-color: #f5f5f5;
+            color: var(--text-color);
+            line-height: 1.6;
         }
 
-        .prompt {
-            margin-bottom: 10px;
-            white-space: nowrap;
-            overflow: hidden;
+        .container {
+            display: flex;
+            min-height: 100vh;
         }
 
-        .prompt::before {
-            content: attr(data-prompt);
-            color: #33ff00;
+        .info-section {
+            flex: 1;
+            padding: 4rem;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .login-section {
+            flex: 1;
+            padding: 4rem;
+            background-color: var(--light-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: var(--light-color);
+            border-radius: 8px;
+        }
+
+        .contact-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .login-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+            font-weight: 500;
         }
 
         input {
-            background: transparent;
-            border: none;
-            color: #33ff00;
-            font-family: 'Courier New', monospace;
-            font-size: 16px;
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
             outline: none;
-            width: calc(100% - 180px);
+            border-color: var(--secondary-color);
         }
 
-        #output {
-            margin-top: 20px;
-            white-space: pre-wrap;
+        button {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
 
-        .error {
-            color: #ff3333;
+        button:hover {
+            background-color: var(--secondary-color);
         }
 
-        .success {
-            color: #33ff00;
-        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
 
-        .command-history {
-            margin: 10px 0;
-            color: #888;
-        }
-
-        #commandInput {
-            width: calc(100% - 180px);
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .help-text {
-            color: #888;
-            margin: 10px 0;
+            .info-section, .login-section {
+                padding: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div id="terminal">
-        <div class="prompt" data-prompt="Last login: "><span id="lastLogin"></span></div>
-        <div id="loginSection">
-            <div class="prompt" data-prompt="login: ">
-                <input type="text" id="username" autocomplete="off">
-            </div>
-            <div class="prompt" data-prompt="password: ">
-                <input type="password" id="password" autocomplete="off">
+    <div class="container">
+        <div class="info-section">
+            <h1>Разработка веб-приложений и автоматизация бизнес процессов</h1>
+            <p>Создаем современные веб-решения для вашего бизнеса в Астане</p>
+            <p>Профессиональная разработка:</p>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                <li>Корпоративные веб-приложения</li>
+                <li>CRM-системы</li>
+                <li>Автоматизация бизнес-процессов</li>
+                <li>Интеграционные решения</li>
+            </ul>
+            <div class="contact-info">
+                <p><strong>Свяжитесь с нами:</strong></p>
+                <p>Телефон: <a href="tel:+77771271818">+7 (777) 127-18-18</a></p>
+                <p>Telegram: <a href="https://t.me/sab1tm" target="_blank">@sab1tm</a></p>
             </div>
         </div>
-        <div id="commandSection" class="hidden">
-            <div id="commandHistory"></div>
-            <div class="prompt" data-prompt="admin@macbook ~ % ">
-                <input type="text" id="commandInput" autocomplete="off">
-            </div>
+        <div class="login-section">
+            <form class="login-form">
+                <h2 style="margin-bottom: 1.5rem; color: var(--primary-color);">Вход в систему</h2>
+                <div class="form-group">
+                    <label for="username">Логин</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Войти</button>
+            </form>
         </div>
-        <div id="output"></div>
     </div>
-
-    <script>
-        const validCredentials = {
-            username: 'admin',
-            password: 'admin123'
-        };
-
-        const commands = {
-            help: 'Available commands:\n  help - Show this help\n  clear - Clear screen\n  ls - List files\n  sudo - Execute privileged command\n  exit - Logout',
-            ls: 'Documents\nDownloads\nPictures\nApplications',
-            clear: '',
-            sudo: 'password'
-        };
-
-        let isLoggedIn = false;
-        let lastCommand = '';
-
-        const terminal = {
-            loginSection: document.getElementById('loginSection'),
-            commandSection: document.getElementById('commandSection'),
-            username: document.getElementById('username'),
-            password: document.getElementById('password'),
-            commandInput: document.getElementById('commandInput'),
-            output: document.getElementById('output'),
-            commandHistory: document.getElementById('commandHistory')
-        };
-
-        document.getElementById('lastLogin').textContent = new Date().toString();
-
-        terminal.username.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                terminal.password.focus();
-            }
-        });
-
-        terminal.password.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                validateLogin();
-            }
-        });
-
-        terminal.commandInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                handleCommand();
-            }
-        });
-
-        function validateLogin() {
-            const username = terminal.username.value;
-            const password = terminal.password.value;
-
-            if (username === validCredentials.username && password === validCredentials.password) {
-                isLoggedIn = true;
-                terminal.loginSection.classList.add('hidden');
-                terminal.commandSection.classList.remove('hidden');
-                terminal.output.innerHTML = '<span class="success">Welcome to macOS Terminal</span>\nType \'help\' for available commands.\n';
-                terminal.commandInput.focus();
-            } else {
-                terminal.output.innerHTML = '<span class="error">Login incorrect</span>';
-                terminal.username.value = '';
-                terminal.password.value = '';
-                terminal.username.focus();
-            }
-        }
-
-        async function handleCommand() {
-            const command = terminal.commandInput.value.trim();
-            terminal.commandInput.value = '';
-            
-            if (!command) return;
-
-            let output = '';
-            lastCommand = command;
-            const commandParts = command.split(' ');
-
-            if (commandParts[0] === 'sudo') {
-                const sudoPass = await promptForPassword();
-                if (sudoPass === validCredentials.password) {
-                    output = `[sudo] Executing: ${commandParts.slice(1).join(' ')}\nOperation completed successfully.`;
-                } else {
-                    output = 'Sorry, try again.';
-                }
-            } else {
-                output = commands[command] || `Command not found: ${command}`;
-            }
-
-            if (command === 'clear') {
-                terminal.output.innerHTML = '';
-                terminal.commandHistory.innerHTML = '';
-            } else if (command === 'exit') {
-                location.reload();
-            } else {
-                terminal.commandHistory.innerHTML += `<div class="command-history">${command}</div>`;
-                terminal.output.innerHTML += `${output}\n`;
-            }
-        }
-
-        async function promptForPassword() {
-            return new Promise((resolve) => {
-                const currentOutput = terminal.output.innerHTML;
-                terminal.output.innerHTML += '[sudo] password for admin: ';
-                terminal.commandInput.type = 'password';
-                
-                const sudoHandler = (e) => {
-                    if (e.key === 'Enter') {
-                        e.preventDefault();
-                        const password = terminal.commandInput.value;
-                        terminal.commandInput.value = '';
-                        terminal.commandInput.type = 'text';
-                        terminal.output.innerHTML = currentOutput + '\n';
-                        terminal.commandInput.removeEventListener('keypress', sudoHandler);
-                        resolve(password);
-                    }
-                };
-
-                terminal.commandInput.addEventListener('keypress', sudoHandler);
-            });
-        }
-
-        // Keep focus on appropriate input
-        document.addEventListener('click', () => {
-            if (!isLoggedIn) {
-                if (!terminal.password.value) {
-                    terminal.username.focus();
-                } else {
-                    terminal.password.focus();
-                }
-            } else {
-                terminal.commandInput.focus();
-            }
-        });
-    </script>
 </body>
 </html>
