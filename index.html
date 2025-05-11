@@ -22,10 +22,12 @@
 
         .prompt {
             margin-bottom: 10px;
+            white-space: nowrap;
+            overflow: hidden;
         }
 
         .prompt::before {
-            content: "guest@macbook ~ % ";
+            content: attr(data-prompt);
             color: #33ff00;
         }
 
@@ -41,40 +43,51 @@
 
         #output {
             margin-top: 20px;
+            white-space: pre-wrap;
+        }
+
+        .error {
             color: #ff3333;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        #loginForm {
-            margin-top: 20px;
         }
 
         .success {
             color: #33ff00;
         }
 
-        .cursor {
-            animation: blink 1s infinite;
+        .command-history {
+            margin: 10px 0;
+            color: #888;
         }
 
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
+        #commandInput {
+            width: calc(100% - 180px);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .help-text {
+            color: #888;
+            margin: 10px 0;
         }
     </style>
 </head>
 <body>
     <div id="terminal">
-        <div class="prompt">Last login: <span id="lastLogin"></span></div>
-        <div id="loginForm">
-            <div class="prompt">
-                <input type="text" id="username" placeholder="username" autocomplete="off">
+        <div class="prompt" data-prompt="Last login: "><span id="lastLogin"></span></div>
+        <div id="loginSection">
+            <div class="prompt" data-prompt="login: ">
+                <input type="text" id="username" autocomplete="off">
             </div>
-            <div class="prompt">
-                <input type="password" id="password" placeholder="password" autocomplete="off">
+            <div class="prompt" data-prompt="password: ">
+                <input type="password" id="password" autocomplete="off">
+            </div>
+        </div>
+        <div id="commandSection" class="hidden">
+            <div id="commandHistory"></div>
+            <div class="prompt" data-prompt="admin@macbook ~ % ">
+                <input type="text" id="commandInput" autocomplete="off">
             </div>
         </div>
         <div id="output"></div>
@@ -86,53 +99,131 @@
             password: 'admin123'
         };
 
+        const commands = {
+            help: 'Available commands:\n  help - Show this help\n  clear - Clear screen\n  ls - List files\n  sudo - Execute privileged command\n  exit - Logout',
+            ls: 'Documents\nDownloads\nPictures\nApplications',
+            clear: '',
+            sudo: 'password'
+        };
+
+        let isLoggedIn = false;
+        let lastCommand = '';
+
+        const terminal = {
+            loginSection: document.getElementById('loginSection'),
+            commandSection: document.getElementById('commandSection'),
+            username: document.getElementById('username'),
+            password: document.getElementById('password'),
+            commandInput: document.getElementById('commandInput'),
+            output: document.getElementById('output'),
+            commandHistory: document.getElementById('commandHistory')
+        };
+
         document.getElementById('lastLogin').textContent = new Date().toString();
 
-        let currentInput = 'username';
-        const usernameInput = document.getElementById('username');
-        const passwordInput = document.getElementById('password');
-        const output = document.getElementById('output');
-
-        usernameInput.focus();
-
-        usernameInput.addEventListener('keypress', (e) => {
+        terminal.username.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 e.preventDefault();
-                passwordInput.focus();
-                currentInput = 'password';
+                terminal.password.focus();
             }
         });
 
-        passwordInput.addEventListener('keypress', (e) => {
+        terminal.password.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 e.preventDefault();
                 validateLogin();
             }
         });
 
+        terminal.commandInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                handleCommand();
+            }
+        });
+
         function validateLogin() {
-            const username = usernameInput.value;
-            const password = passwordInput.value;
+            const username = terminal.username.value;
+            const password = terminal.password.value;
 
             if (username === validCredentials.username && password === validCredentials.password) {
-                output.innerHTML = '<span class="success">Login successful. Welcome, ' + username + '!</span>';
-                usernameInput.disabled = true;
-                passwordInput.disabled = true;
+                isLoggedIn = true;
+                terminal.loginSection.classList.add('hidden');
+                terminal.commandSection.classList.remove('hidden');
+                terminal.output.innerHTML = '<span class="success">Welcome to macOS Terminal</span>\nType \'help\' for available commands.\n';
+                terminal.commandInput.focus();
             } else {
-                output.textContent = 'Error: Invalid username or password. Access denied.';
-                usernameInput.value = '';
-                passwordInput.value = '';
-                usernameInput.focus();
-                currentInput = 'username';
+                terminal.output.innerHTML = '<span class="error">Login incorrect</span>';
+                terminal.username.value = '';
+                terminal.password.value = '';
+                terminal.username.focus();
             }
         }
 
-        // Handle focus
-        document.addEventListener('click', () => {
-            if (currentInput === 'username') {
-                usernameInput.focus();
+        async function handleCommand() {
+            const command = terminal.commandInput.value.trim();
+            terminal.commandInput.value = '';
+            
+            if (!command) return;
+
+            let output = '';
+            lastCommand = command;
+            const commandParts = command.split(' ');
+
+            if (commandParts[0] === 'sudo') {
+                const sudoPass = await promptForPassword();
+                if (sudoPass === validCredentials.password) {
+                    output = `[sudo] Executing: ${commandParts.slice(1).join(' ')}\nOperation completed successfully.`;
+                } else {
+                    output = 'Sorry, try again.';
+                }
             } else {
-                passwordInput.focus();
+                output = commands[command] || `Command not found: ${command}`;
+            }
+
+            if (command === 'clear') {
+                terminal.output.innerHTML = '';
+                terminal.commandHistory.innerHTML = '';
+            } else if (command === 'exit') {
+                location.reload();
+            } else {
+                terminal.commandHistory.innerHTML += `<div class="command-history">${command}</div>`;
+                terminal.output.innerHTML += `${output}\n`;
+            }
+        }
+
+        async function promptForPassword() {
+            return new Promise((resolve) => {
+                const currentOutput = terminal.output.innerHTML;
+                terminal.output.innerHTML += '[sudo] password for admin: ';
+                terminal.commandInput.type = 'password';
+                
+                const sudoHandler = (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        const password = terminal.commandInput.value;
+                        terminal.commandInput.value = '';
+                        terminal.commandInput.type = 'text';
+                        terminal.output.innerHTML = currentOutput + '\n';
+                        terminal.commandInput.removeEventListener('keypress', sudoHandler);
+                        resolve(password);
+                    }
+                };
+
+                terminal.commandInput.addEventListener('keypress', sudoHandler);
+            });
+        }
+
+        // Keep focus on appropriate input
+        document.addEventListener('click', () => {
+            if (!isLoggedIn) {
+                if (!terminal.password.value) {
+                    terminal.username.focus();
+                } else {
+                    terminal.password.focus();
+                }
+            } else {
+                terminal.commandInput.focus();
             }
         });
     </script>
