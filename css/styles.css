@@ -11,6 +11,9 @@
 a {
     text-decoration: none;
 }
+a:hover {
+    text-decoration: underline;
+}
 .container {
     max-width: 80%;
     margin: 0 auto;
