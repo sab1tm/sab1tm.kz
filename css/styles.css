@@ -8,16 +8,21 @@
     padding: 0;
     margin: 0;
 }
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
 .header {
     height: 100px;
-    width: 100%;
+    width: 80%;
     border: 1px solid var(--primary-color);
     padding: 5px;
     margin: 10px;
 }
 .menu {
     height: 50;
-    width: 100%;
+    width: 80%;
     border: 1px solid var(--primary-color);
     padding: 5px;
     margin: 10px;
