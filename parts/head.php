@@ -1,3 +1,6 @@
+<?php
+echo '
+
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -20,3 +23,7 @@
         border: 1px solid val(--primary-color);
     }
 </style>
+
+';
+
+?>
