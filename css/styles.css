@@ -12,12 +12,13 @@
     height: 100px;
     width: 100%;
     border: 1px solid var(--primary-color);
-    padding: 5;
+    padding: 5px;
     margin: 10px;
 }
 .menu {
+    height: 50;
     width: 100%;
     border: 1px solid var(--primary-color);
-    padding: 5;
+    padding: 5px;
     margin: 10px;
 }
