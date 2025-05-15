@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html>
     <head>
         <?php include "parts/head.php"; ?>
         <title>Dev's Bay</title>
@@ -9,7 +9,7 @@
             <?php include "parts/header.php"; ?>
             <?php include "parts/menu.php"; ?>
             <div class="content">
-                content
+                <p>content</p>
             </div>
         </div>
     </body>

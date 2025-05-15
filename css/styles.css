@@ -1,6 +1,11 @@
 :root {
     --bg: black;
     --primary-color: palegreen;
+
+    --std-font-size: 14pt;
+
+    --padding: 5px;
+    --margin: 10px;
 }
 
 * {
@@ -11,9 +16,13 @@
 }
 a {
     text-decoration: none;
+    font-size: var(--std-font-size);
 }
 a:hover {
     text-decoration: underline;
+}
+p {
+    font-size: var(--std-font-size);
 }
 
 .container {
@@ -29,16 +38,16 @@ a:hover {
     height: 100px;
     width: 100%;
     border: 1px solid var(--primary-color);
-    padding: 5px;
-    margin: 10px;
+    padding: var(--padding);
+    margin: var(--margin);
 }
 
 .menu {
     height: 25px;
     width: 100%;
     border: 1px solid var(--primary-color);
-    padding: 5px;
-    margin: 10px;
+    padding: var(--padding);
+    margin: var(--margin);
 }
 .menu a {
     margin-right: 10px;
@@ -47,6 +56,6 @@ a:hover {
     flex: 1;
     width: 100%;
     border: 1px solid var(--primary-color);
-    padding: 5px;
-    margin: 10px;
+    padding: var(--padding);
+    margin: var(--margin);
 }
