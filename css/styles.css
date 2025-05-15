@@ -17,12 +17,12 @@ a:hover {
 }
 
 .container {
-    height: 100%;
-    width: 80%;
+    max-width: 80%;
     margin: 0 auto;
     padding: 0 15px;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 .header {
@@ -34,7 +34,7 @@ a:hover {
 }
 
 .menu {
-    height: 50px;
+    height: 25px;
     width: 100%;
     border: 1px solid var(--primary-color);
     padding: 5px;
