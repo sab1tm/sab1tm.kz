@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ru">
     <head>
-        <?php include "/parts/head.php"; ?>
+        <?php include "parts/head.php"; ?>
         <title>Dev's Bay</title>
     </head>
     <body>
