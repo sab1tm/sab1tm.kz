@@ -20,6 +20,9 @@ a:hover {
     max-width: 80%;
     margin: 0 auto;
     padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .header {
@@ -31,7 +34,7 @@ a:hover {
 }
 
 .menu {
-    height: 50;
+    height: 50px;
     width: 100%;
     border: 1px solid var(--primary-color);
     padding: 5px;
@@ -41,7 +44,7 @@ a:hover {
     margin-right: 10px;
 }
 .content {
-    height: 50;
+    flex: 1;
     width: 100%;
     border: 1px solid var(--primary-color);
     padding: 5px;
