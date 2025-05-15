@@ -9,20 +9,20 @@
     margin: 0;
 }
 .container {
-    max-width: 1200px;
+    max-width: 80%;
     margin: 0 auto;
     padding: 0 15px;
 }
 .header {
     height: 100px;
-    width: 80%;
+    width: 100%;
     border: 1px solid var(--primary-color);
     padding: 5px;
     margin: 10px;
 }
 .menu {
     height: 50;
-    width: 80%;
+    width: 100%;
     border: 1px solid var(--primary-color);
     padding: 5px;
     margin: 10px;
