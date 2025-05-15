@@ -1,17 +1,17 @@
-::root {
+:root {
     --bg: black;
     --primary-color: palegreen;
 }
 * {
-    background-color: val(--bg);
-    color: val(--primary-color);
+    background-color: var(--bg);
+    color: var(--primary-color);
 }
 .header {
     height: 200px;
     width: 100%;
-    border: 1px solid val(--primary-color);
+    border: 1px solid var(--primary-color);
 }
 .menu {
     width: 100%;
-    border: 1px solid val(--primary-color);
+    border: 1px solid var(--primary-color);
 }
