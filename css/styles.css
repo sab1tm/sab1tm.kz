@@ -2,6 +2,7 @@
     --bg: black;
     --primary-color: palegreen;
 }
+
 * {
     background-color: var(--bg);
     color: var(--primary-color);
@@ -14,11 +15,13 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
 .container {
     max-width: 80%;
     margin: 0 auto;
     padding: 0 15px;
 }
+
 .header {
     height: 100px;
     width: 100%;
@@ -26,6 +29,7 @@ a:hover {
     padding: 5px;
     margin: 10px;
 }
+
 .menu {
     height: 50;
     width: 100%;
@@ -35,4 +39,11 @@ a:hover {
 }
 .menu a {
     margin-right: 10px;
+}
+.content {
+    height: 50;
+    width: 100%;
+    border: 1px solid var(--primary-color);
+    padding: 5px;
+    margin: 10px;
 }
