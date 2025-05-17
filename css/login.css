@@ -1,0 +1,51 @@
+:root {
+    --bg: black;
+    --primary-color: palegreen;
+
+    --std-font-size: 14pt;
+
+    --padding: 5px;
+    --margin: 10px;
+}
+
+* {
+    background-color: var(--bg);
+    color: var(--primary-color);
+    padding: 0;
+    margin: 0;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: "Arial", sans-serif;
+}
+.login-form {
+    width: 300px;
+    padding: 40px;
+    border-radius: 10px;
+}
+.login-form input {
+    width: 260px;
+    padding: 12px 15px;
+    margin: 8px 0;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    font-size: 16px;
+}
+.login-form input:focus {
+    outline: none;
+}
+.login-form button {
+    width: 294px;
+    padding: 15px;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
