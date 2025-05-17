@@ -10,22 +10,53 @@
                 align-items: center;
                 min-height: 100vh;
                 margin: 0;
+                font-family: 'Arial', sans-serif;
+                background-color: #f5f5f5;
             }
             .login-form {
-                text-align: center;
-                border: 1px solid palegreen;
-                padding: 15px;
+                background: white;
+                padding: 40px;
+                border-radius: 10px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            }
+            .login-form input {
+                width: 280px;
+                padding: 12px 15px;
+                margin: 8px 0;
+                border: 2px solid palegreen;
+                border-radius: 5px;
+                font-size: 16px;
+                transition: all 0.3s ease;
+            }
+            .login-form input:focus {
+                outline: none;
+                border-color: #32CD32;
+                box-shadow: 0 0 5px rgba(50, 205, 50, 0.3);
+            }
+            .login-form button {
+                width: 100%;
+                padding: 12px;
+                background-color: palegreen;
+                border: none;
+                border-radius: 5px;
+                color: #333;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+            .login-form button:hover {
+                background-color: #98FB98;
+                transform: translateY(-2px);
             }
         </style>
     </head>
     <body>
         <div class="login-form">
             <form action="login.php" method="post">
-			    <input type="text" name="login" placeholder="Логин">
-			    <br><br>
-			    <input type="password" name="password" placeholder="Пароль">
-			    <br><br>
-			    <button type="submit" name="submit">Login</button>
+                <input type="text" name="login" placeholder="Логин">
+                <input type="password" name="password" placeholder="Пароль">
+                <button type="submit" name="submit">Login</button>
             </form>
         </div>
     </body>
