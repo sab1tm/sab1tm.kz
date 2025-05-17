@@ -13,6 +13,8 @@
             }
             .login-form {
                 text-align: center;
+                border: 1px solid palegreen;
+                padding: 15px;
             }
         </style>
     </head>
