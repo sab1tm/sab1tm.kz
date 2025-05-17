@@ -29,6 +29,7 @@
                 font-family: 'Arial', sans-serif;
             }
             .login-form {
+                border: 1px solid var(--primary-color);
                 padding: 40px;
                 border-radius: 10px;
                 box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -59,17 +60,13 @@
                 cursor: pointer;
                 transition: all 0.3s ease;
             }
-            .login-form button:hover {
-                background-color: #98FB98;
-                transform: translateY(-2px);
-            }
         </style>
     </head>
     <body>
         <div class="login-form">
             <form action="login.php" method="post">
                 <input type="text" name="login" placeholder="Логин"> <br>
-                <input type="password" name="password" placeholder="Пароль">
+                <input type="password" name="password" placeholder="Пароль"> <br>
                 <button type="submit" name="submit">Login</button>
             </form>
         </div>
