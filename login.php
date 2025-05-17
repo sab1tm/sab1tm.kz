@@ -4,6 +4,22 @@
         <?php include "template/head.php"; ?>
         <title>Dev's Bay</title>
         <style>
+            :root {
+                --bg: black;
+                --primary-color: palegreen;
+
+                --std-font-size: 14pt;
+
+                --padding: 5px;
+                --margin: 10px;
+            }
+
+            * {
+                background-color: var(--bg);
+                color: var(--primary-color);
+                padding: 0;
+                margin: 0;
+            }
             body {
                 display: flex;
                 justify-content: center;
@@ -11,10 +27,8 @@
                 min-height: 100vh;
                 margin: 0;
                 font-family: 'Arial', sans-serif;
-                background-color: #f5f5f5;
             }
             .login-form {
-                background: white;
                 padding: 40px;
                 border-radius: 10px;
                 box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -23,7 +37,7 @@
                 width: 280px;
                 padding: 12px 15px;
                 margin: 8px 0;
-                border: 2px solid palegreen;
+                border: 2px solid var(--primary-color);
                 border-radius: 5px;
                 font-size: 16px;
                 transition: all 0.3s ease;
@@ -36,7 +50,7 @@
             .login-form button {
                 width: 100%;
                 padding: 12px;
-                background-color: palegreen;
+                background-color: var(--primary-color);
                 border: none;
                 border-radius: 5px;
                 color: #333;
