@@ -46,7 +46,8 @@
                 outline: none;
             }
             .login-form button {
-                width: 260px;
+                width: 300px;
+                padding: 15px;
                 background-color: var(--primary-color);
                 border: none;
                 border-radius: 5px;
