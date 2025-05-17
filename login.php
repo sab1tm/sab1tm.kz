@@ -29,36 +29,31 @@
                 font-family: 'Arial', sans-serif;
             }
             .login-form {
+                width: 300px;
                 border: 1px solid var(--primary-color);
                 padding: 40px;
                 border-radius: 10px;
-                box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             }
             .login-form input {
-                width: 100%;
+                width: 220px;
                 padding: 12px 15px;
                 margin: 8px 0;
                 border: 2px solid var(--primary-color);
                 border-radius: 5px;
                 font-size: 16px;
-                transition: all 0.3s ease;
             }
             .login-form input:focus {
                 outline: none;
-                border-color: #32CD32;
-                box-shadow: 0 0 5px rgba(50, 205, 50, 0.3);
             }
             .login-form button {
-                width: 100%;
-                padding: 12px;
+                width: 220px;
                 background-color: var(--primary-color);
                 border: none;
                 border-radius: 5px;
-                color: #333;
+                color: black;
                 font-size: 16px;
                 font-weight: bold;
                 cursor: pointer;
-                transition: all 0.3s ease;
             }
         </style>
     </head>
