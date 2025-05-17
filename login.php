@@ -61,7 +61,7 @@
         <div class="login-form">
             <form action="login.php" method="post">
                 <input type="text" name="login" placeholder="Логин"> <br>
-                <input type="password" name="password" placeholder="Пароль"> <br>
+                <input type="password" name="password" placeholder="Пароль"> <br><br>
                 <button type="submit" name="submit">Login</button>
             </form>
         </div>
