@@ -35,7 +35,7 @@
                 border-radius: 10px;
             }
             .login-form input {
-                width: 220px;
+                width: 260px;
                 padding: 12px 15px;
                 margin: 8px 0;
                 border: 2px solid var(--primary-color);
@@ -46,7 +46,7 @@
                 outline: none;
             }
             .login-form button {
-                width: 220px;
+                width: 260px;
                 background-color: var(--primary-color);
                 border: none;
                 border-radius: 5px;
