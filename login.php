@@ -30,7 +30,6 @@
             }
             .login-form {
                 width: 300px;
-                border: 1px solid var(--primary-color);
                 padding: 40px;
                 border-radius: 10px;
             }
