@@ -1,5 +1,3 @@
-<?php
-include "module/security.php"; ?>
 <!doctype html>
 <html>
     <head>
