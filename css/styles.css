@@ -30,6 +30,8 @@ p {
     margin: 0 auto;
     padding: 0 15px;
     height: 100px;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
