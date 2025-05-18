@@ -38,6 +38,7 @@ body {
 }
 .login-form input:focus {
     outline: none;
+    background-color: var(--bg);
 }
 .login-form button {
     width: 294px;
