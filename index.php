@@ -1,5 +1,5 @@
 <?php
-include "module/security.php"; ?>
+include "service/auth_check.php"; ?>
 <!doctype html>
 <html>
     <head>
